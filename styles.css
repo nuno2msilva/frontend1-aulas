@@ -1,22 +1,21 @@
 body {
-    background-color: beige;
+    background-color: #EEF2FF;
 }
 
 #navbar {
-    background-color: green;
+    background-color: #D6DAF0 ;
     min-height: 100px;
     text-align: center;
     align-content: center;
     border-radius: 20px;
-    margin: 10px 10px 5px 10px;
+    margin: 10px 10px 10px 10px;
 }
 
 #content {
-    margin: 5px 10px 10px 10px;
-    width: 100vw;
-    background-color: yellow;
-    height: calc(100vh - 115px - 15px); /* Viewport - navbar height - all margins */
+    margin: 10px 10px 10px 10px;
+    background-color: #D6DAF0;
     border-radius: 20px;
     align-content: center;
     text-align: center;
+    height: calc(100vh - 130px);
 }
