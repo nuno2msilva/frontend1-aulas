@@ -5,7 +5,7 @@ async function getNews() {
         
         if (data.news && data.news.length > 0) {
             const sortedNews = [...data.news].sort((a, b) => {
-                return parseInt(a.id) + parseInt(b.id);
+                return parseInt(a.id) - parseInt(b.id);
             });
             
             displayAllNews(sortedNews);
