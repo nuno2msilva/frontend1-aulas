@@ -1,0 +1,114 @@
+{
+    "news": [
+      {
+        "id": "1",
+        "date": "2025-03-20",
+        "title": "Hudson Construction Partners With Gorons on Innovative Heat-Resistant Housing",
+        "content": "Hudson Construction has announced a collaborative project with Goron master builders to develop new heat-resistant housing materials. \"By combining Goron metallurgy with our architectural expertise, we've created structures that can withstand even Death Mountain temperatures,\" explained Hudson. The technology could make previously uninhabitable regions of Hyrule suitable for settlement and expand mining operations into resource-rich volcanic areas.",
+        "tags": [
+          {"type": "location", "value": "Eldin"},
+          {"type": "type", "value": "Development"},
+          {"type": "severity", "value": "Innovation"}
+        ]
+      },
+      {
+        "id": "2",
+        "date": "2025-03-21",
+        "title": "Massive Hinox Spotted Near Trade Routes, Travelers Advised to Reroute",
+        "content": "Merchants traveling between Central Hyrule and Akkala have reported sightings of an unusually large Hinox near Crenel Hills. The monster, estimated to be twice the normal size, appears to be territorial rather than actively hunting. The Royal Guard has established a temporary outpost in the area and recommends travelers use the eastern path through Rauru Settlement until further notice.",
+        "tags": [
+          {"type": "location", "value": "Crenel Hills"},
+          {"type": "type", "value": "Danger"},
+          {"type": "severity", "value": "Warning"}
+        ]
+      },
+      {
+        "id": "3",
+        "date": "2025-03-22",
+        "title": "Zonai Artifacts Exhibition Opens at Lookout Landing Museum",
+        "content": "The newly established Lookout Landing Museum unveiled its inaugural exhibition featuring authentic Zonai artifacts recovered from Sky Islands and the Depths. Visitors can observe working Zonai devices, architectural models, and ancient texts. \"Understanding our past helps us build our future,\" said curator Cado. The exhibition includes guided tours led by researchers who participated in excavations.",
+        "tags": [
+          {"type": "location", "value": "Lookout Landing"},
+          {"type": "type", "value": "Culture"},
+          {"type": "severity", "value": "Educational"}
+        ]
+      },
+      {
+        "id": "4",
+        "date": "2025-03-23",
+        "title": "Bokoblin Population Decreasing, Researchers Identify Natural Predator",
+        "content": "Monster researchers from the University of Hateno have discovered why Bokoblin numbers have steadily decreased over the past year. \"The introduction of Grumble Foxes to the ecosystem has created a natural control mechanism,\" explained Professor Symin. These nimble predators hunt Bokoblins primarily at night. Conservation experts are monitoring the situation to maintain ecological balance.",
+        "tags": [
+          {"type": "location", "value": "Necluda"},
+          {"type": "type", "value": "Research"},
+          {"type": "severity", "value": "Positive"}
+        ]
+      },
+      {
+        "id": "5",
+        "date": "2025-03-24",
+        "title": "Unusual Weather Patterns: Meteorologists Predict Snow In Gerudo Desert",
+        "content": "Weather experts from the Rito Observatory have detected a bizarre atmospheric phenomenon that could bring snow to the typically scorching Gerudo Desert next week. \"The collision of cold air from Hebra with unusual updrafts from the Depths has created conditions never before recorded,\" explained chief meteorologist Teba. Gerudo residents have begun preparations for the unprecedented weather event.",
+        "tags": [
+          {"type": "location", "value": "Gerudo Region"},
+          {"type": "type", "value": "Weather"},
+          {"type": "severity", "value": "Unusual"}
+        ]
+      },
+      {
+        "id": "6",
+        "date": "2025-03-26",
+        "title": "Annual Harvest Festival To Feature Multi-Regional Cuisine Competition",
+        "content": "This year's Harvest Festival at Hyrule Field will include the kingdom's first multi-regional cooking competition. Representatives from Goron City, Rito Village, Zora's Domain, Gerudo Town, and various Hylian settlements will prepare signature dishes using ingredients from across the realm. \"Food brings people together,\" explained organizer Kiana. \"And after all we've been through, togetherness is what Hyrule needs.\"",
+        "tags": [
+          {"type": "location", "value": "Central Hyrule"},
+          {"type": "type", "value": "Event"},
+          {"type": "severity", "value": "Community"}
+        ]
+      },
+      {
+        "id": "7",
+        "date": "2025-03-27",
+        "title": "Scholar's Theory Confirmed: Princess Zelda Was The Legendary Golden Dragon",
+        "content": "Following extensive research into ancient texts and eyewitness accounts, scholar Impa II has confirmed that Princess Zelda's disappearance coincided with the emergence of the golden dragon that protected Hyrule for generations. \"The princess's divine power allowed her spirit to take draconic form while her physical body remained sealed away,\" Impa explained. A royal ceremony honoring this sacrifice will be held next month.",
+        "tags": [
+          {"type": "location", "value": "Hyrule Castle"},
+          {"type": "type", "value": "History"},
+          {"type": "severity", "value": "Breakthrough"}
+        ]
+      },
+      {
+        "id": "8",
+        "date": "2025-03-29",
+        "title": "Divine Beasts Mysteriously Vanish Overnight, Leaving Only Footprints",
+        "content": "Citizens across Hyrule awoke yesterday to discover that all four Divine Beasts had disappeared without explanation. Where Vah Ruta, Rudania, Medoh, and Naboris once stood, only massive footprints and disturbed earth remain. Champion descendants report sensing a \"final farewell\" before their disappearance. King Dorephan of the Zora suggested: \"Perhaps their purpose fulfilled, they have returned to the realm of the ancients.\"",
+        "tags": [
+          {"type": "location", "value": "All Regions"},
+          {"type": "type", "value": "Mystery"},
+          {"type": "severity", "value": "Confirmed"}
+        ]
+      },
+      {
+        "id": "9",
+        "date": "2025-03-31",
+        "title": "Purah's Research Team Repurposes Dormant Sheikah Tech: \"It Was Heartbreaking\"",
+        "content": "Following the fading of ancient Sheikah technology across Hyrule, Director Purah has led efforts to salvage and repurpose components from dormant shrines. \"Each piece we dismantle feels like saying goodbye to an old friend,\" Purah confessed. \"But their knowledge lives on in our new Zonai-Sheikah hybrid devices.\" Her team has successfully created sustainable lighting solutions for remote villages using recovered materials.",
+        "tags": [
+          {"type": "location", "value": "Hateno Village"},
+          {"type": "type", "value": "Technology"},
+          {"type": "severity", "value": "Innovation"}
+        ]
+      },
+      {
+        "id": "10",
+        "date": "2025-04-01",
+        "title": "Yiga Clan Reforms Under New Leadership, Claims Peaceful Intent",
+        "content": "In a shocking turn of events, the notorious Yiga Clan has emerged from hiding with a new leader who calls himself \"Master Kohga II.\" The group claims to have renounced their violent ways and seeks to establish a banana trading network throughout Hyrule. \"We've learned that obsession leads to downfall,\" the masked leader stated in a written proclamation. Gerudo Chief Riju has expressed skepticism, increasing patrols along desert borders.",
+        "tags": [
+          {"type": "location", "value": "Karusa Valley"},
+          {"type": "type", "value": "Security"},
+          {"type": "severity", "value": "Developing"}
+        ]
+      }
+    ]
+  }
