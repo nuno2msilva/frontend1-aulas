@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucky Clover Gazette - Hyrule's Finest News</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
-        <h1>Lucky Clover Gazette</h1>
+        <h1 id="page-title">Lucky Clover Gazette</h1>
         <p>Hyrule's Most Reliable News Source • By Penn, Traysi, and Seira</p>
     </header>
-    
+
     <nav>
         <ul>
+            <li><button id="theme-toggle" class="theme-button">THEME</button></li>
             <li><a href="#">Front Page</a></li>
             <li><a href="#">Regional Updates</a></li>
             <li><a href="#">Sky Island News</a></li>
             <li><a href="#">Depths Discoveries</a></li>
             <li><a href="#">Travel Tales</a></li>
+            <li class="form-container">
+                <form id="changeName">
+                    <span class="form-label">Yigafy:</span>
+                    <input type="text" id="titleInput" placeholder="For the glory of Ganon!" required>
+                    <button type="submit" class="styled-button">Hijinx!</button>
+                </form>
+            </li>
         </ul>
     </nav>
-    
+
     <div class="container">
         <aside class="sidebar">
             <h3>Regions of Hyrule</h3>
@@ -37,7 +47,8 @@
                 <li><a href="#">Tabantha Frontier</a></li>
                 <li><a href="#">Great Sky Island</a></li>
             </ul>
-            
+
+
             <h3>Settlements</h3>
             <ul>
                 <li><a href="#">Lookout Landing</a></li>
@@ -51,12 +62,16 @@
                 <li><a href="#">Tarrey Town</a></li>
             </ul>
         </aside>
-        
+        <main class="travels">
+
+        </main>
         <main class="main-content">
-            
+            <main class="travels">
+
+            </main>
         </main>
     </div>
-    
+
     <footer>
         <p>Lucky Clover Gazette • Your reliable source for news across Hyrule and beyond</p>
         <p>"Truth, trust, and the occasional treasure tip!" - Penn, Chief Editor</p>
@@ -65,4 +80,5 @@
 
     </script>
 </body>
+
 </html>
