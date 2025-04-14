@@ -1,0 +1,100 @@
+/* Content Container Layout for Index Page */
+.left-window {
+    flex: 1;
+    min-height: 100%;
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 100%;
+}
+
+.top-right-window {
+    flex: 3; /* Takes 3/4 of the available vertical space */
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom-right-window {
+    flex: 1; /* Takes 1/4 of the available vertical space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Introduction Panel Styles */
+#introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+}
+
+#introduction img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto 15px auto;
+    display: block;
+}
+
+/* Content Grid Layout */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.intro-panel, .weather-panel, .updates-panel {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.intro-panel h2, .weather-panel h2, .updates-panel h2 {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 15px;
+    margin: 0;
+    font-weight: bold;
+    font-family: "Hylia Serif";
+}
+
+.intro-panel img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 15px auto;
+    display: block;
+    padding: 0 15px;
+}
+
+.intro-panel p, .updates-panel p {
+    padding: 0 15px;
+}
+
+.side-panels {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    gap: 20px;
+}
+
+#weather-results {
+    padding: 15px;
+}
+
+/* Media queries for index page layout */
+@media (max-width: 900px) {
+    .content-container {
+        flex-direction: column;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}

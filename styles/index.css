@@ -1,0 +1,278 @@
+#content {
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+#introduction {
+    background-color: white;
+    border-radius: 15px;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    
+}
+
+#introduction img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    width: 750px;
+}
+
+#introduction p {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Weather Widget - Grid-based layout */
+#weather {
+    background-color: white;
+    border-radius: 15px;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    padding: 15px;
+}
+
+/* Main grid layout with 1/3 - 2/3 split for both rows */
+.weather-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1/3 and 2/3 split for both rows */
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "search status"
+        "content content";
+    gap: 12px;
+    height: 100%;
+}
+
+/* Search area - Simplified and following 1/3 width */
+.search-container {
+    grid-area: search;
+    display: flex;
+    align-items: center;
+}
+
+/* Remove the h3 heading */
+.search-container h3 {
+    display: none;
+}
+
+.search-form {
+    display: flex;
+    width: 100%;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 12px;
+    min-width: 0; /* Prevents overflow in flex container */
+}
+
+.search-form button {
+    padding: 6px 10px;
+    background-color: var(--primary, #4A90E2);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* Status bar - Takes 2/3 width */
+.status-bar {
+    grid-area: status;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.status-success {
+    background-color: #e6ffed;
+    color: #22863a;
+    border: 1px solid #b7e1cd;
+}
+
+.status-error {
+    background-color: #ffeef0;
+    color: #cb2431;
+    border: 1px solid #f1c0c0;
+}
+
+/* Weather content - Left-right division with 1/3 and 2/3 proportions */
+.weather-content {
+    grid-area: content; /* Takes full width of the second row */
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1/3 to 2/3 width division */
+    gap: 12px;
+    height: 100%;
+}
+
+/* Current weather (Left column) */
+.current-weather {
+    
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.location {
+    text-align: center;
+    margin: 0 0 4px 0;
+    font-size: 18px;
+}
+
+.region-name {
+    text-align: center;
+    font-size: 12px;
+    
+    margin-bottom: 10px;
+}
+
+.weather-main {
+    background-color: lightgray;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#weather-icon {
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+#current-temp {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.weather-details {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.weather-detail {
+    background-color: lightgray;
+    padding: 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.detail-label {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+/* Forecast section (Right column) */
+.forecast-container {
+    
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.forecast-container h3 {
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Forecast grid - Back to 6×2 layout */
+.forecast-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.forecast-item {
+    background-color: lightgray;
+    border-radius: 20px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.forecast-time {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.forecast-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.forecast-temp {
+    font-size: 11px;
+    display: flex;
+    gap: 4px;
+}
+
+.max-temp {
+    color: #cb2431;
+}
+
+.min-temp {
+    color: #666;
+}
+
+/* Error messages styling */
+.weather-error, .forecast-error {
+    width: 100%;
+    text-align: center;
+    color: #cb2431;
+    padding: 15px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #fff8f8;
+    border-radius: 4px;
+}
+
+.forecast-error {
+    grid-column: 1 / -1; /* Span all columns */
+    grid-row: 1 / -1;    /* Span all rows */
+    margin: 0;
+}
+
+.weather-error {
+    width: 100%;
+    text-align: center;
+    color: #cb2431;
+    padding: 20px;
+}
+
+#customization {
+    background-color: white;
+    border-radius: 15px;
+    grid-column: 2;
+    grid-row: 3;
+}

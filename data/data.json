@@ -7,8 +7,8 @@
             "content": "A new era of journalism begins in Hyrule! Founded by Traysi and Penn, the Lucky Clover Gazette promises to be the voice of the people, covering stories from the far reaches of Hyrule. Stay tuned for updates on everything from weather to world-changing events.",
             "tags": [
                 {"type": "location", "value": "Tabantha"},
-                {"type": "type", "value": "founding"},
-                {"type": "severity", "value": "low"}
+                {"type": "type", "value": "Founding"},
+                {"type": "severity", "value": "Low"}
             ]
         },
         {
@@ -18,8 +18,8 @@
             "content": "Princess Zelda shares her thoughts on the battle that reshaped Hyrule. 'It was a victory of unity,' she says, praising the efforts of Link, the Champions, and the people of Hyrule. Read the full interview inside!",
             "tags": [
                 {"type": "location", "value": "Hyrule Castle"},
-                {"type": "type", "value": "interview"},
-                {"type": "severity", "value": "medium"}
+                {"type": "type", "value": "Interview"},
+                {"type": "severity", "value": "Medium"}
             ]
         },
         {
@@ -29,8 +29,8 @@
             "content": "A heartfelt tribute to the Champions who gave their lives to protect Hyrule during the Calamity. Their legacies live on through the Divine Beasts and the people they inspired.",
             "tags": [
                 {"type": "location", "value": "Hyrule"},
-                {"type": "type", "value": "tribute"},
-                {"type": "severity", "value": "low"}
+                {"type": "type", "value": "Tribute"},
+                {"type": "severity", "value": "Low"}
             ]
         }
     ]

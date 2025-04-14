@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Clover Gazette - Hyrule's Finest News</title>
+    <link rel="stylesheet" href="./styles/global.css">
+</head>
+
+<body>
+
+    <header id="header"></header>
+
+    <nav id="navbar"></nav>
+
+    <main id="content">
+        <div class="">
+            <section id="addnote">
+                <form>
+                    <div>
+                        <label for="_1">Title</label>
+                        <input type="text" id="_1" name="_1" required>
+                    </div>
+                    <div>
+                        <label for="_date">Date</label>
+                        <input type="date" id="_date" name="_date" required>
+                    </div>
+                    <div>
+                        <label for="_2">Content</label>
+                        <textarea id="_2" name="_2" required minlength="10" rows="5"></textarea>
+                    </div>
+                    <div>
+                        <label for="_3_0">By checking this box I know this information is tethered to this sheikah
+                            device, and will be lost in case this device is lost or stolen.</label>
+                        <input type="checkbox" id="_3_0" name="_3" value="option1">
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+
+            <main>
+                <!-- Notes will appear here -->
+            </main>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="scripts/elements_loader.js"></script>
+    <script src="scripts/travel_notes.js"></script>
+
+</body>
+
+</html>
