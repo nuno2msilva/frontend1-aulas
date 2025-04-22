@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Add at the top of your script
+    let lastTime = 0;
+
     // Create audio element for collision sound
     const collisionSound = new Audio();
     collisionSound.src = "./media/snd_tempbell.wav";  // Path to your sound file
@@ -12,11 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Border properties
     const border = {
-        x: 10,           // Closer to left edge (was 50)
-        y: 10,           // Closer to top edge (was 50)
-        width: 280,      // Wider to be closer to right edge (was 200)
-        height: 280,     // Taller to be closer to bottom edge (was 200)
-        thickness: 5     // Thicker line (was 2)
+        x: 10,          
+        y: 10,
+        width: 280,
+        height: 280,
+        thickness: 5
     };
     
     // Heart position and properties
@@ -24,9 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
         x: canvas.width / 2,
         y: canvas.height / 2,
         size: 15,
-        speed: 2,      // Reduced default speed
-        normalSpeed: 2, // Reduced normal speed
-        slowSpeed: 1    // Reduced slow speed
+        speed: 3,      // Reduced default speed
+        normalSpeed: 3, // Reduced normal speed
+        slowSpeed: 1.5    // Reduced slow speed
     };
     
     // Track which keys are currently pressed
@@ -117,7 +120,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Game loop
-    function gameLoop() {
+    function gameLoop(currentTime) {
+        // Calculate time elapsed since last frame
+        const deltaTime = (currentTime - lastTime) / 1000; // Convert to seconds
+        lastTime = currentTime;
+        
         // Clear canvas
         ctx.fillStyle = 'black';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -126,10 +133,13 @@ document.addEventListener('DOMContentLoaded', function() {
         drawBorder();
         
         // Set speed based on shift key
-        heart.speed = keys.Shift ? heart.slowSpeed : heart.normalSpeed;
+        const currentSpeed = keys.Shift ? heart.slowSpeed : heart.normalSpeed;
         
-        // Move heart based on which keys are pressed
-        moveHeart();
+        // Update position based on deltaTime (for consistent movement speed)
+        if (keys.ArrowUp) heart.y -= currentSpeed * deltaTime * 60;
+        if (keys.ArrowDown) heart.y += currentSpeed * deltaTime * 60;
+        if (keys.ArrowLeft) heart.x -= currentSpeed * deltaTime * 60;
+        if (keys.ArrowRight) heart.x += currentSpeed * deltaTime * 60;
         
         // Check for collisions
         checkBorderCollision();
@@ -139,30 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Continue game loop
         requestAnimationFrame(gameLoop);
-    }
-    
-    // Movement function also needs to use correct heart dimensions
-    function moveHeart() {
-        // Calculate heart dimensions based on the pixel map
-        const pixelSize = 1;
-        const heartWidth = 16 * pixelSize;  // 16 pixels wide based on your array
-        const heartHeight = 15 * pixelSize; // 15 pixels tall based on your array
-        
-        // Vertical movement
-        if (keys.ArrowUp && heart.y > border.y + heartHeight / 2) {
-            heart.y -= heart.speed;
-        }
-        if (keys.ArrowDown && heart.y < border.y + border.height - heartHeight / 2) {
-            heart.y += heart.speed;
-        }
-        
-        // Horizontal movement
-        if (keys.ArrowLeft && heart.x > border.x + heartWidth / 2) {
-            heart.x -= heart.speed;
-        }
-        if (keys.ArrowRight && heart.x < border.x + border.width - heartWidth / 2) {
-            heart.x += heart.speed;
-        }
     }
     
     // Track keydown events
@@ -180,6 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Start game
-    gameLoop();
+    // Start the game loop with timestamp
+    requestAnimationFrame(gameLoop);
 });
