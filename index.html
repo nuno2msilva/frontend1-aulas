@@ -10,49 +10,46 @@
 </head>
 
 <body>
-    
+
     <header id="header"></header>
 
     <main id="content">
 
         <section id="introduction">
             <img src="./images/luckyclovergazette.jpg" alt="Lucky Clover Gazette">
-        <p>The core team running the Lucky Clover Gazette consists of four members:
-            Traysi, the editor-in-chief who purchased the old Rito Stable and now runs the paper;
-            Penn, the seasoned reporter known for his airborne expeditions and on-the-scene coverage;
-            and Traysi's two sisters, Juannelle and Douma, who help out with the operations and reporting duties.</p>
-        <p>Some sources also mention Galli—the previous owner of the stable—as a character still found around the Gazette,
-            though he isn't part of the official newsroom staff.</p>
+            <p>The core team running the Lucky Clover Gazette consists of four members:
+                Traysi, the editor-in-chief who purchased the old Rito Stable and now runs the paper;
+                Penn, the seasoned reporter known for his airborne expeditions and on-the-scene coverage;
+                and Traysi's two sisters, Juannelle and Douma, who help out with the operations and reporting duties.
+            </p>
+            <p>Some sources also mention Galli—the previous owner of the stable—as a character still found around the
+                Gazette,
+                though he isn't part of the official newsroom staff.</p>
         </section>
 
         <section id="weather">
             <div class="weather-grid">
-                <!-- Top row with 1/3 and 2/3 split -->
                 <div class="search-container">
                     <form class="search-form">
                         <input type="text" id="city-input" placeholder="Search city...">
                         <button type="submit" id="search-btn">Search</button>
                     </form>
                 </div>
-                
                 <div id="status-bar" class="status-bar status-success">
                     Ready to use
                 </div>
-                
-                <!-- Bottom row with 1/3 and 2/3 split -->
                 <div class="weather-content">
-                    <!-- Left column: Current weather -->
                     <div class="current-weather">
                         <h3 class="location">Hyrule Kingdom</h3>
                         <div class="region-name"></div>
                         <div class="weather-main">
-                            <img id="weather-icon" src="" alt="Weather icon">
+                            <img id="weather-icon" src="" alt="Weather Icon">
                             <div id="current-temp"></div>
                         </div>
                         <div class="weather-details"></div>
                     </div>
-                    
-                    <!-- Right column: Forecast grid -->
+
+
                     <div class="forecast-container">
                         <h3>12-Hour Forecast</h3>
                         <div class="forecast-grid"></div>
