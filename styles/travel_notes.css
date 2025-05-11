@@ -1,0 +1,233 @@
+/* Basic styles for travel notes app */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    max-width: 800px;
+    margin: 40px auto 0 auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    min-height: 60vh;
+}
+
+.note-card {
+    background: #f9fafb;
+    border: 1px solid #dbe2ea;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: relative;
+}
+
+.note-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    color: #2d3a4b;
+}
+
+.note-date, .note-modified {
+    font-size: 0.95rem;
+    color: #7a869a;
+    margin-bottom: 8px;
+}
+
+.note-content {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 12px;
+    white-space: pre-line;
+}
+
+.edit-btn, .delete-btn {
+    background: #e3eaf2;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 14px;
+    margin-right: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.edit-btn:hover {
+    background: #b2d7ff;
+}
+
+.delete-btn:hover {
+    background: #ffb2b2;
+}
+
+.no-notes-message {
+    color: #888;
+    text-align: center;
+    margin: 40px 0;
+    font-size: 1.1rem;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(0,0,0,0.25);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    margin: 60px auto;
+    padding: 28px 32px;
+    border-radius: 12px;
+    max-width: 400px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 18px;
+    top: 12px;
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+}
+
+.modal-header h2 {
+    margin: 0 0 12px 0;
+    font-size: 1.2rem;
+    color: #2d3a4b;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.modal-buttons button {
+    padding: 6px 14px;
+    border-radius: 5px;
+    border: none;
+    background: #e3eaf2;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modal-buttons button#save-edit-btn:hover {
+    background: #b2d7ff;
+}
+
+.modal-buttons button#cancel-edit-btn:hover {
+    background: #ffb2b2;
+}
+
+/* Toast styles */
+#toast-container {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+}
+
+.toast {
+    background: #2ecc71;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.toast.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Style the add note form */
+#addnote {
+    background: #f5faff;
+    border: 1.5px solid #b2d7ff;
+    border-radius: 12px;
+    padding: 28px 32px 18px 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.07);
+}
+#addnote form > div {
+    margin-bottom: 18px;
+}
+#addnote label {
+    display: block;
+    font-weight: 500;
+    color: #2d3a4b;
+    margin-bottom: 6px;
+}
+#addnote input[type="text"],
+#addnote input[type="date"],
+#addnote textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #bfc9d1;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #fafdff;
+    margin-bottom: 2px;
+    transition: border 0.2s;
+}
+#addnote input[type="text"]:focus,
+#addnote input[type="date"]:focus,
+#addnote textarea:focus {
+    border: 1.5px solid #3498db;
+    outline: none;
+}
+#addnote input[type="checkbox"] {
+    margin-right: 8px;
+}
+#addnote button[type="submit"] {
+    background: linear-gradient(90deg, #3498db 60%, #2ecc71 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 28px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+#addnote button[type="submit"]:hover {
+    background: linear-gradient(90deg, #2ecc71 60%, #3498db 100%);
+    box-shadow: 0 4px 16px rgba(46, 204, 113, 0.13);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    #content {
+        padding: 8px;
+    }
+    #addnote {
+        padding: 14px 6px 10px 6px;
+    }
+    .modal-content {
+        padding: 12px 6px;
+    }
+}

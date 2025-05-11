@@ -5,80 +5,54 @@ const footerContainer = document.getElementById('footer');
 /**
  * Loads an HTML component file into the specified container
  * 
- * @param {string} containerId - The ID of the HTML element where component should be inserted
+ * @param {string} containerId - The ID of the HTML element where the component should be inserted
  * @param {string} componentName - The name of the component file (without .html extension)
  * @returns {Promise<boolean>} - Promise resolving to success/failure status
  */
 async function loadComponent(containerId, componentName) {
-  // Find the container where we'll put the component
-  const containerElement = document.getElementById(containerId);
-  
-  try {
-    // Fetch the HTML file from the components folder
-    // For example: 'components/header.html' or 'components/footer.html'
-    const response = await fetch(`components/${componentName}.html`);
-    
-    // Check if the fetch was successful
-    if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-    
-    // Get the HTML content and insert it into the container
-    containerElement.innerHTML = await response.text();
-    console.log(`${componentName} component loaded successfully`);
-    
-    // If we just loaded the header, highlight the current page in the navigation menu
-    if (containerId === 'header') {
-      highlightCurrentPageInMenu();
+    const containerElement = document.getElementById(containerId);
+
+    try {
+        const response = await fetch(`components/${componentName}.html`);
+        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+
+        containerElement.innerHTML = await response.text();
+        console.log(`${componentName} component loaded successfully`);
+
+        // If we just loaded the header, highlight the current page in the navigation menu
+        if (containerId === 'header') {
+            highlightCurrentPageInMenu();
+        }
+
+        return true;
+    } catch (error) {
+        containerElement.innerHTML = `<div style="color: red">Error loading ${componentName}: ${error.message}</div>`;
+        console.error(`Failed to load ${componentName} component:`, error);
+        return false;
     }
-    
-    return true; // Successfully loaded
-  } catch (error) {
-    // Show error message if something went wrong
-    containerElement.innerHTML = `<div style="color: red">Error loading ${componentName}: ${error.message}</div>`;
-    console.error(`Failed to load ${componentName} component:`, error);
-    return false; // Failed to load
-  }
 }
 
 /**
- * Finds and highlights the navigation link that matches the current page
+ * Highlights the navigation link that matches the current page
  */
-async function highlightCurrentPageInMenu() {
-  try {
-    // Figure out which page we're on
+function highlightCurrentPageInMenu() {
     const currentPageFileName = window.location.pathname.split('/').pop() || 'index.html';
-    
-    // Small delay to make sure the navigation menu is fully loaded
-    await new Promise(resolve => setTimeout(resolve, 100));
-    
-    // Find all navigation links in the header
     const navigationLinks = document.querySelectorAll('.header-nav a');
-    
-    // First, remove any existing highlights
+
     navigationLinks.forEach(link => {
-      link.classList.remove('active');
+        link.classList.remove('active'); // Remove existing highlights
+        if (link.getAttribute('href') === currentPageFileName) {
+            link.classList.add('active'); // Highlight the current page link
+        }
     });
-    
-    // Then find the link that matches our current page and highlight it
-    navigationLinks.forEach(link => {
-      const linkDestination = link.getAttribute('href');
-      
-      // Highlight if the link matches current page or if we're on home page
-      if ((linkDestination === currentPageFileName) || 
-          (linkDestination === 'index.html' && (currentPageFileName === '' || currentPageFileName === '/'))) {
-        link.classList.add('active');
-        console.log(`Highlighted navigation link: ${linkDestination}`);
-      }
-    });
-  } catch (error) {
-    console.error('Something went wrong while highlighting the current page link:', error);
-  }
 }
 
-// Load the header and footer, then setup date/time/location display
-loadComponent('header', 'header');
-loadComponent('footer', 'footer').then(() => {
-  setupFooterElements();
+// Load the header and footer, then initialize the title
+loadComponent('header', 'header').then(() => {
+    console.log("Header loaded, initializing title...");
+    initializeTitle(); // Call the title initialization function from title_swap.js
 });
+loadComponent('footer', 'footer');
 
 /**
  * Sets up all the dynamic elements in the footer (time, date, and location)
@@ -199,3 +173,19 @@ function getPositionAsync() {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 }
+
+// Add this to elements_loader.js or as a separate script
+document.addEventListener('DOMContentLoaded', function() {
+    // Get current page filename
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Find all navigation links
+    const navLinks = document.querySelectorAll('.header-nav a');
+    
+    // Add 'active' class to the link matching the current page
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+});

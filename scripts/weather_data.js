@@ -1,7 +1,7 @@
 // Waits until HTML is all loaded up to run the weather widget
 document.addEventListener('DOMContentLoaded', function() {
     
-      // Function to turn text into Title Case
+    // Function to turn text into Title Case
     function toTitleCase(text) {
         return text.replace(/\b\w/g, char => char.toUpperCase());
     }
@@ -38,9 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fetches weather data from OpenWeather API
     async function fetchWeatherData(city) {
         try {
-            setStatus(true, "Fetching Weather Data...");
+            // Show loading state
+            weatherDetails.innerHTML = '<div class="weather-detail" style="grid-column: 1/-1; text-align: center;">Loading...</div>';
+            forecastGrid.innerHTML = '<div style="grid-column: 1/-1; grid-row: 1/-1; text-align: center;">Loading...</div>';
             
-            // Fetch current weather for default region "Faro"
+            // Fetch current weather
             const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
             const currentResponse = await fetch(currentWeatherUrl);
             
@@ -52,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     throw new Error('Weather Service Temporarily Unavailable!');
                 }
             }
+            
             const currentData = await currentResponse.json();
             
             // Fetch forecast data for specified region
@@ -63,13 +66,18 @@ document.addEventListener('DOMContentLoaded', function() {
             displayCurrentWeather(currentData);
             displayForecast(forecastData);
             
-            // Update status to show success
-            setStatus(true, "Weather Service Online and Ready!");
+            // Clear any existing error elements
+            const existingErrors = document.querySelectorAll('.weather-error, .forecast-error');
+            existingErrors.forEach(el => el.remove());
             
         } catch (error) {
             console.error('Error:', error);
-            setStatus(false, error.message);
-            clearWeatherData();
+            
+            if (error.message === 'Region not found!') {
+                clearWeatherData('region_not_found');
+            } else {
+                clearWeatherData(null);
+            }
         }
     }
     
@@ -81,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Set region name
         regionName.textContent = `${data.name} Region`;
+        regionName.style.display = 'block';
         
         // Set weather icon and temperature
         const iconCode = data.weather[0].icon;
@@ -214,7 +223,6 @@ document.addEventListener('DOMContentLoaded', function() {
                      alt="${itemToUse.weather[0].description}">
                 <div class="forecast-temp">
                     <span class="max-temp">${Math.round(maxTemp)}°</span>
-                    /
                     <span class="min-temp">${Math.round(minTemp)}°</span>
                 </div>
             `;
@@ -226,25 +234,47 @@ document.addEventListener('DOMContentLoaded', function() {
     
     /**
      * Clears weather data and shows error messages
+     * @param {string} errorType - Optional error type to handle specific cases
      */
-    function clearWeatherData() {
-        // Clear region name
-        regionName.textContent = '';
+    function clearWeatherData(errorType) {
+        // Clear any existing error elements first
+        const existingErrors = document.querySelectorAll('.weather-error, .forecast-error');
+        existingErrors.forEach(el => el.remove());
         
-        // Hide weather elements
+        // Clear weather details and add error message
+        weatherDetails.innerHTML = '';
+        const weatherErrorEl = document.createElement('div');
+        weatherErrorEl.className = 'weather-error';
+        
+        if (errorType === 'region_not_found') {
+            weatherErrorEl.textContent = 'Location not found.';
+        } else {
+            weatherErrorEl.textContent = 'Weather data unavailable.';
+        }
+        
+        weatherDetails.appendChild(weatherErrorEl);
+        
+        // Clear forecast grid with error message
+        forecastGrid.innerHTML = '';
+        const forecastErrorEl = document.createElement('div');
+        forecastErrorEl.className = 'forecast-error';
+        forecastErrorEl.textContent = 'Forecast unavailable';
+        forecastGrid.appendChild(forecastErrorEl);
+        
+        // Hide icon and temperature
         weatherIcon.style.display = 'none';
         currentTemp.style.display = 'none';
         
-        // Clear values for accessibility
-        weatherIcon.src = '';
-        weatherIcon.alt = '';
-        currentTemp.textContent = '';
+        // Make sure the weather-main background is hidden as well
+        const weatherMain = document.querySelector('.weather-main');
+        if (weatherMain) {
+            weatherMain.style.background = 'transparent';
+            weatherMain.style.padding = '0';
+        }
         
-        // Show error messages
-        regionName.innerHTML = '<div class="region-error">REGION DATA ERROR</div>';
-        weatherDetails.innerHTML = '<div class="weather-error">WEATHER<br> DATA ERROR</div>';
-        forecastGrid.innerHTML = '<div class="forecast-error">FORECAST<br> DATA ERRROR</div>';
-    }1
+        // Hide the region name too
+        regionName.style.display = 'none';
+    }
     
     // Set up event listener for search form
     searchForm.addEventListener('submit', function(e) {
@@ -255,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (city) {
             fetchWeatherData(city);
         } else {
-            setStatus(false, "Please enter a city name");
+            alert("Please enter a city name");
         }
     });
     

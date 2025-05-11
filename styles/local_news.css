@@ -1,0 +1,109 @@
+/* Styles for the Local News Section */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container for all news items */
+#content {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Rectangle wrapper for the news section */
+#news-rectangle {
+    background: #fff;
+    border: 2px solid #bfc9d1;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+    margin: 32px 0;
+    width: 100%;
+    max-width: 900px;
+    min-height: 60vh;
+}
+
+/* Individual news item */
+.news-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Date of the news */
+.news-date {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Title of the news */
+.news-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Tags container */
+.news-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Individual tag styles */
+.news-tags span {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* Tag types */
+.news-tags .important {
+    background-color: #e74c3c;
+}
+
+.news-tags .info {
+    background-color: #3498db;
+}
+
+.news-tags .success {
+    background-color: #2ecc71;
+}
+
+.news-tags .warning {
+    background-color: #f1c40f;
+}
+
+.news-tags .neutral {
+    background-color: #95a5a6;
+}

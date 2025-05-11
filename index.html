@@ -29,15 +29,6 @@
 
         <section id="weather">
             <div class="weather-grid">
-                <div class="search-container">
-                    <form class="search-form">
-                        <input type="text" id="city-input" placeholder="Search city...">
-                        <button type="submit" id="search-btn">Search</button>
-                    </form>
-                </div>
-                <div id="status-bar" class="status-bar status-success">
-                    Ready to use
-                </div>
                 <div class="weather-content">
                     <div class="current-weather">
                         <h3 class="location">Hyrule Kingdom</h3>
@@ -49,9 +40,14 @@
                         <div class="weather-details"></div>
                     </div>
 
-
                     <div class="forecast-container">
-                        <h3>12-Hour Forecast</h3>
+                        <div class="forecast-header">
+                            <h3>12-Hour Forecast</h3>
+                            <form class="search-form">
+                                <input type="text" id="city-input" placeholder="Search city...">
+                                <button type="submit" id="search-btn">Search</button>
+                            </form>
+                        </div>
                         <div class="forecast-grid"></div>
                     </div>
                 </div>
@@ -59,7 +55,14 @@
         </section>
 
         <section id="customization">
-            Customization
+            <section class="title-changer">
+                Because the gazette could not exist without you, we allow you to customize the news name!
+                <form id="changeName">
+                    <span class="form-label">Yigafy:</span>
+                    <input type="text" id="titleInput" placeholder="For the glory of Ganon!" required>
+                    <button type="submit" class="styled-button">Hijinx!</button>
+                </form>
+            </section>
         </section>
 
     </main>
@@ -68,6 +71,7 @@
 
     <script src="scripts/elements_loader.js"></script>
     <script src="scripts/weather_data.js"></script>
+    <script src="scripts/custom_username.js"></script>
 </body>
 
 </html>

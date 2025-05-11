@@ -2,7 +2,7 @@
 async function getNews() {
     try {
         // Make HTTP request to get data.json
-        const response = await fetch('../data/data.json');
+        const response = await fetch('./data/data.json');
         // Parse JSON response to JavaScript object
         const data = await response.json();
         
@@ -52,8 +52,8 @@ function displayAllNews(newsItems) {
         `;
     }
     
-    // Insert generated HTML into the page
-    mainContent.innerHTML = allNewsHTML;
+    // Wrap all news in the rectangle div
+    mainContent.innerHTML = `<div id="news-rectangle">${allNewsHTML}</div>`;
 }
 
 // Initialize news in the page
